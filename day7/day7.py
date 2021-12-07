@@ -3,14 +3,10 @@ with open("day7/input.txt", 'r') as f:
     positions = nums[0].split(',')
     positions = [int(pos) for pos in positions]
 
-# 1000 positions
-# Crab subs are independent
-# Fuel cost
 cost = 0
 min_pos = min(positions)
 max_pos = max(positions)
 
-# Try from min pos to max pos
 def get_meet(part2=False):
 
     def series_sum(x, part2):

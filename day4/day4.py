@@ -14,41 +14,6 @@ bingo_list1 = [[line.split() for line in bingo_board] for bingo_board in bingo_l
 
 #bingo_list1 = [[int(i) for i in row] for board in bingo_list1 for row in board]
 
-# hashing maybe
-def hash_board(board_list):
-    board_maps = []
-    for board in board_list:
-        board_dict = {}
-        for row in range(len(board)):
-            for col in range(row):
-                num = board[row][col]
-                pos_string = f"{row}{col}"
-                board_dict[num] = pos_string
-        board_maps.append(board_dict)
-    return board_maps
-
-def play_game(board_list, board_maps, nums_called):
-    board_list1 = board_list
-    board_maps1 = board_maps
-    for num in nums_called:
-        for board, board_map in zip(board_list1, board_maps1):
-            if num in board_map:
-                i = int(board_map[num][0])
-                j = int(board_map[num][1])
-                board[i][j] = 'X'
-            rows = board
-            cols = [col for col in zip(*board)]
-            print(rows)
-            print(cols)
-
-
-                
-
-
-play_game(bingo_list1, hash_board(bingo_list1), num_line)
-    
-    
-
 x = None
 y = None
 

@@ -1,13 +1,15 @@
-with open("day13/input.txt", 'r') as f:
+with open("day13/jacks_file.txt", 'r') as f:
     nums = [line.strip() for line in f.readlines()]
     split_index = nums.index('')
     print(nums)
     coords, instructions = nums[:split_index], nums[split_index+1:]
     coords = [coord.split(',') for coord in coords]
     coords = [(int(i[0]), int(i[1])) for i in coords]
-    
-max_dim_x = max([i[0] for i in coords])
-max_dim_y = max([i[1] for i in coords])
+
+
+split_instructions = [instruction.split()[2].split('=') for instruction in instructions]
+max_dim_x = max([2 * int(i[1]) for i in split_instructions if i[0]=="x"])
+max_dim_y = max([2 * int(i[1]) for i in split_instructions if i[0]=="y"])
 print(max_dim_x, max_dim_y)
 print(instructions)
 

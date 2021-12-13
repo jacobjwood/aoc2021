@@ -26,6 +26,7 @@ def make_map(cave_tuples):
 
 cave_map = make_map(nums)
 
+
 def solver(G, part2=False):
 
     paths = []

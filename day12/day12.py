@@ -41,14 +41,16 @@ def solver(G, part2=False):
         if v.islower():
             visited.append(v)
 
-        for w in G[v].copy():
+        for w in G[v]:
+
             if w == "start":
                 continue
+
             if (w not in visited):
                 dfs(G, w, visited.copy(), visited_twice=visited_twice, path=path.copy(), part2=part2)
             elif (w in visited and not visited_twice and part2):
                 dfs(G, w, visited, visited_twice=True, path=path.copy())
-        return paths
+
 
     dfs(cave_map, "start", part2=part2)
     return paths
